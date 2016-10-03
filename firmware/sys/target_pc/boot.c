@@ -44,7 +44,7 @@ void main_virtual()
     bat_setup();
 
     // MONITOR BATTERY VOLTAGE TWICE PER SECOND
-    HEVENT event=tmr_eventcreate(battery_handler,500,1);
+    HEVENT event=tmr_eventcreate(battery_handler,2000,1);
 
     ggl_initscr(&scr);
 
