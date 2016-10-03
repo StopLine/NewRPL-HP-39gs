@@ -105,81 +105,6 @@ SOURCES +=\
     firmware/sys/Font8C.c \
     firmware/sys/Font8D.c \
     firmware/hal_msgenglish.c \
-    firmware/sys/target_50g/sddriver.c \
-    firmware/sys/fsystem/fatconvert.c \
-    firmware/sys/fsystem/fsattr.c \
-    firmware/sys/fsystem/fscalcfreespace.c \
-    firmware/sys/fsystem/fschattr.c \
-    firmware/sys/fsystem/fschdir.c \
-    firmware/sys/fsystem/fschmode.c \
-    firmware/sys/fsystem/fsclose.c \
-    firmware/sys/fsystem/fscloseanddelete.c \
-    firmware/sys/fsystem/fsconvert2shortentry.c \
-    firmware/sys/fsystem/fscreate.c \
-    firmware/sys/fsystem/fsdelete.c \
-    firmware/sys/fsystem/fsdeletedirentry.c \
-    firmware/sys/fsystem/fseof.c \
-    firmware/sys/fsystem/fsexpandchain.c \
-    firmware/sys/fsystem/fsfileisopen.c \
-    firmware/sys/fsystem/fsfileisreferenced.c \
-    firmware/sys/fsystem/fsfilelength.c \
-    firmware/sys/fsystem/fsfindchar.c \
-    firmware/sys/fsystem/fsfindentry.c \
-    firmware/sys/fsystem/fsfindfile.c \
-    firmware/sys/fsystem/fsfindforcreation.c \
-    firmware/sys/fsystem/fsflushbuffers.c \
-    firmware/sys/fsystem/fsflushfatcache.c \
-    firmware/sys/fsystem/fsfreechain.c \
-    firmware/sys/fsystem/fsfreefile.c \
-    firmware/sys/fsystem/fsgetaccessdate.c \
-    firmware/sys/fsystem/fsgetchain.c \
-    firmware/sys/fsystem/fsgetchainsize.c \
-    firmware/sys/fsystem/fsgetcreattime.c \
-    firmware/sys/fsystem/fsgetcurrentvolume.c \
-    firmware/sys/fsystem/fsgetcwd.c \
-    firmware/sys/fsystem/fsgetdatetime.c \
-    firmware/sys/fsystem/fsgeterrormsg.c \
-    firmware/sys/fsystem/fsgetfilename.c \
-    firmware/sys/fsystem/fsgethandle.c \
-    firmware/sys/fsystem/fsgetnametype.c \
-    firmware/sys/fsystem/fsgetnextentry.c \
-    firmware/sys/fsystem/fsgetvolumefree.c \
-    firmware/sys/fsystem/fsgetvolumesize.c \
-    firmware/sys/fsystem/fsgetwritetime.c \
-    firmware/sys/fsystem/fsinit.c \
-    firmware/sys/fsystem/fsmkdir.c \
-    firmware/sys/fsystem/fsmountvolume.c \
-    firmware/sys/fsystem/fsmovedopenfiles.c \
-    firmware/sys/fsystem/fsnamecompare.c \
-    firmware/sys/fsystem/fsopen.c \
-    firmware/sys/fsystem/fsopendir.c \
-    firmware/sys/fsystem/fspackdir.c \
-    firmware/sys/fsystem/fspackname.c \
-    firmware/sys/fsystem/fspatchfatblock.c \
-    firmware/sys/fsystem/fsread.c \
-    firmware/sys/fsystem/fsreadll.c \
-    firmware/sys/fsystem/fsreleaseentry.c \
-    firmware/sys/fsystem/fsrename.c \
-    firmware/sys/fsystem/fsrestart.c \
-    firmware/sys/fsystem/fsrmdir.c \
-    firmware/sys/fsystem/fsseek.c \
-    firmware/sys/fsystem/fssetcasemode.c \
-    firmware/sys/fsystem/fssetcurrentvolume.c \
-    firmware/sys/fsystem/fsshutdown.c \
-    firmware/sys/fsystem/fssleep.c \
-    firmware/sys/fsystem/fsstripsemi.c \
-    firmware/sys/fsystem/fstell.c \
-    firmware/sys/fsystem/fstruncatechain.c \
-    firmware/sys/fsystem/fsupdatedirentry.c \
-    firmware/sys/fsystem/fsvolumeinserted.c \
-    firmware/sys/fsystem/fsvolumemounted.c \
-    firmware/sys/fsystem/fsvolumepresent.c \
-    firmware/sys/fsystem/fswrite.c \
-    firmware/sys/fsystem/fswritefatentry.c \
-    firmware/sys/fsystem/fswritell.c \
-    firmware/sys/fsystem/fsystem.c \
-    firmware/sys/fsystem/misalign.c \
-    firmware/sys/fsystem/fsallocator.c \
     newrpl/lib-4080-localenv.c \
     newrpl/lib-4090-overloaded.c \
     newrpl/lib-common.c \
@@ -204,7 +129,6 @@ SOURCES +=\
     newrpl/lib-68-flags.c \
     newrpl/lib-70-binary.c \
     newrpl/lib-72-stack.c \
-    newrpl/lib-74-sdcard.c \
     newrpl/lib-80-fonts.c \
     firmware/sys/target_50g/rtc.c
 
@@ -224,9 +148,7 @@ HEADERS  += \
     newrpl/lib-header.h \
     newrpl/include-all.h \
     newrpl/romlibs.h \
-    firmware/sys/sddriver.h \
-    firmware/sys/fsystem/fsyspriv.h \
-    firmware/include/fsystem.h
+    firmware/sys/fsystem/fsyspriv.h
 
 
 RPL_OBJECTS =   newrpl/rpl-objects/lib-54.nrpl \
@@ -239,8 +161,7 @@ RPL_OBJECTS =   newrpl/rpl-objects/lib-54.nrpl \
                 newrpl/rpl-objects/lib-30.nrpl \
                 newrpl/rpl-objects/lib-32.nrpl \
                 newrpl/rpl-objects/lib-48.nrpl \
-                newrpl/rpl-objects/lib-64.nrpl \
-                newrpl/rpl-objects/lib-74.nrpl
+                newrpl/rpl-objects/lib-64.nrpl
 
 
 
@@ -248,7 +169,7 @@ RPL_OBJECTS =   newrpl/rpl-objects/lib-54.nrpl \
 
 
 # This might need to be adapted to each cross-compiler installation
-GCC_LIBDIR = /usr/lib/gcc/arm-none-eabi/4.9.3
+GCC_LIBDIR = /usr/lib/gcc/arm-none-eabi/6.2.0
 
 INCLUDEPATH += $$GCC_LIBDIR/include
 QMAKE_LIBDIR += $$GCC_LIBDIR

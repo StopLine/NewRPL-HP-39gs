@@ -198,9 +198,6 @@ void main_virtual(unsigned int mode)
     }
     }
 
-    // INITIALIZE SD CARD SYSTEM MEMORY ALLOCATOR
-    FSHardReset();
-
 
     halOuterLoop();
 
@@ -680,10 +677,6 @@ void halReset()
 void halEnterPowerOff()
 {
     // TODO: ADD RPL ENGINE CLEANUP HERE BEFORE RESET
-
-    // FILE SYSTEM SHUTDOWN
-
-    FSShutdown();
 
     // PUT THE CPU IN A KNOWN SLOW SPEED
     cpu_setspeed(6000000);

@@ -57,8 +57,6 @@ void __cpu_inton(unsigned int state)
 
 EXTERN void __tmr_fix();
 
-EXTERN int SDGetClock();
-EXTERN void SDSetClock(int clock);
 
 #define HWREG(base,off) ( (volatile unsigned int *) (((int)base+(int)off)))
 
@@ -114,8 +112,6 @@ LCDPTR[0]&=0xFFFFFFFE;
 
     if(PLLCON>0xffffff) {
 
-        int sdclk=SDGetClock();
-
     // SWITCH TO SLOW MODE
     *HWREG(CLK_REGS,0x10)=(*HWREG(CLK_REGS,0x10)& (~0x37)) | (PLLCON>>24);
     *HWREG(CLK_REGS,0x14)=*HWREG(CLK_REGS,0x14)& (~3);	// SET HCLK=FCLK; PCLK=HCLK=FCLK;
@@ -131,14 +127,11 @@ LCDPTR[0]&=0xFFFFFFFE;
     __lcd_fix();
 
     // FIX SD CARD OPERATION
-    SDSetClock(sdclk);
 
     return ((PLLCON>>24)&7)? 6000000/((PLLCON>>24)&7) : 12000000;
     }
 
-    int sdclk=SDGetClock();
-
-    // SWITCH TO FAST MODE
+     // SWITCH TO FAST MODE
     int m=((PLLCON>>12)&0xff)+8,p=((PLLCON>>4)&0x1f)+2,s=PLLCON&3;
 
     int FCLK=((unsigned)m*12000000)/(p*(1<<s));
@@ -176,9 +169,6 @@ LCDPTR[0]&=0xFFFFFFFE;
 
     // FIX TIMERS
     __tmr_fix();
-
-    // FIX SD CARD OPERATION
-    SDSetClock(sdclk);
 
 return FCLK;
 }

@@ -4003,16 +4003,6 @@ void halOuterLoop()
 
             if(!isidle) offcounter=halTicks();
 
-            // FLUSH FILE SYSTEM CACHES WHEN IDLING FOR MORE THAN 3 SECONDS
-            if(!(jobdone&1) && FSIsInit()) {
-
-            if(halTicks()-offcounter >=3000000) {
-                if(FSIsDirty()) { FSFlushAll(); halUpdateStatus(); }
-                jobdone|=1;
-            }
-
-            }
-
 
             // AUTO-OFF WHEN IDLING
             if(halFlags&HAL_AUTOOFFTIME) {
