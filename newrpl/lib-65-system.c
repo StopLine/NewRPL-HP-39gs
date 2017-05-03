@@ -9,7 +9,7 @@
 #include "libraries.h"
 #include "hal.h"
 
-#include <stdio.h>
+// #include <stdio.h>
 
 // *****************************
 // *** COMMON LIBRARY HEADER ***

@@ -170,7 +170,7 @@ RPL_OBJECTS =   newrpl/rpl-objects/lib-54.nrpl \
                 newrpl/rpl-objects/lib-64.nrpl
 
 
-INCLUDEPATH += firmware/include newrpl /usr/local/include /usr/include
+INCLUDEPATH += firmware/include newrpl /usr/local/include
 
 LIBS += -L/usr/local/lib
 
